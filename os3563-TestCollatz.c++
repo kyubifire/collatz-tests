@@ -87,6 +87,10 @@ TEST(CollatzFixture, evala_6) {
 TEST(CollatzFixture, evala_7) {
     const int v = collatz_eval(22, 22);
     ASSERT_EQ(16, v);}
+TEST(CollatzFixture, evala_8){
+    const int v = collatz_eval(500000, 100000);
+    ASSERT_EQ(449, v);}
+
 
 
 // -----
@@ -125,7 +129,15 @@ TEST(CollatzFixture, solvea_2) {
     ostringstream w;
     collatz_solve(r, w);
     ASSERT_EQ("1 3 8\n1 1 1\n", w.str());}
+
+TEST(CollatzFixture, solvea_3) {
+    istringstream r("56985 241493\n719699 902065\n414040 111247\n438423 198281\n276584 108807\n180806 554663\n573689 668307\n");
+    ostringstream w;
+    collatz_solve(r, w);
+    ASSERT_EQ("56985 241493 443\n719699 902065 525\n414040 111247 449\n438423 198281 449\n276584 108807 443\n180806 554663 470\n573689 668307 509\n", w.str());}
+
 #endif
+    
 //overflow on the int while calculating for n
 /*
 TEST(CollatzFixture, solvea_3) {
