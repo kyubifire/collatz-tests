@@ -53,17 +53,20 @@ TEST(CollatzFixture, read_3) {
 
 TEST(CollatzFixture, cycle_1) {
     int i = 1;
-    const int p = collatz_cycle_length(i);
+    char cache[1000000] = {}; 
+    const int p = collatz_cycle_length(i, cache);
     ASSERT_EQ(1, p);}
 
 TEST(CollatzFixture, cycle_2) {
     int i = 999998;
-    const int p = collatz_cycle_length(i);
+    char cache[1000000] = {}; 
+    const int p = collatz_cycle_length(i, cache);
     ASSERT_EQ(259, p);}
 
 TEST(CollatzFixture, cycle_3) {
     int i = 999999;
-    const int p = collatz_cycle_length(i);
+    char cache[1000000] = {}; 
+    const int p = collatz_cycle_length(i, cache);
     ASSERT_EQ(259, p);}
 
 
